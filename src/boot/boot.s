@@ -35,7 +35,8 @@ _start:
     call kernel_start
     //If nothing left, loop
     cli
-1:  hlt
-    jmp 1b
+    hlt
+.hang:    
+    jmp .hang
 //Set size of start symbol
 .size _start, . - _start
