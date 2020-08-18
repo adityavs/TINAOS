@@ -24,14 +24,15 @@ sudo apt install build-essential bison flex libgmp3-dev libmpc-dev texinfo curl
 #Check if the binutils archive exists
 if [ -f "gcc.tar.gz" ]
 then
-    echo "Unpacking binutils"
+    echo "Unpacking gcc"
     tar -xvzf "gcc.tar.gz" -C "gcc-src"
 else
-    echo "Downloading binutils"
+    echo "Downloading gcc"
     curl https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.gz > gcc.tar.gz
     if [ -d "gcc-src" ]
     then
         #noop
+        echo "No operation running as gcc-src is real"
     else
         mkdir "gcc-src"
     fi

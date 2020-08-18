@@ -6,7 +6,7 @@ NASM=$(BIN)/$(TARGET)-nasm
 
 #Install all requirements
 install:
-	sudo apt install build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu-kvm qemu-system-i386 xorriso
+	sudo apt install build-essential bison flex libgmp3-dev libmpc-dev libmpfr-dev texinfo qemu-kvm qemu-system-i386 xorriso curl
 #Building all drivers in src/drivers
 drivers:
 	echo "Building drivers..."
@@ -14,7 +14,7 @@ drivers:
 cross-compiler:
 	cd libs/cross-compiler && make all
 hydrogen:
-	echo "Building HydrogenOS bootstrap..."
+	echo "Building TINAOS bootstrap..."
 	mkdir -p "output"
 	$(AS) src/boot/boot.s -o output/boot.o
 	make drivers
@@ -22,7 +22,7 @@ hydrogen:
 	$(GCC) -T src/boot/linker.ld -o output/HydrogenOS.bin -ffreestanding -O2 -nostdlib output/boot.o output/kernel.o  -lgcc
 	mkdir -p output/isodir/boot/grub
 	cp src/boot/grub.cfg output/isodir/boot/grub/grub.cfg
-	cp output/HydrogenOS.bin output/isodir/boot/HydrogenOS.bin
+	cp output/HydrogenOS.bin output/isodir/boot/TINAOS.bin
 	grub-mkrescue -o output/HydrogenOS.iso output/isodir
 usb:
 	make hydrogen
