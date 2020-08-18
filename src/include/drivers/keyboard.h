@@ -1,5 +1,5 @@
 #include <interrupts/interrupts.h>
-
+#include <helper/font_helper.h>
 int scan_code()
 {
     //Verify that we have data passed
@@ -12,5 +12,5 @@ int scan_code()
 
 char translate_code(int code)
 {
-
+    //This function is to convert the given character code to a char
 }
