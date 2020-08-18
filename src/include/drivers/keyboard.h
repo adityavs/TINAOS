@@ -9,3 +9,8 @@ int scan_code()
         return inb(0x60);
     }
 }
+
+char translate_code(int code)
+{
+
+}
