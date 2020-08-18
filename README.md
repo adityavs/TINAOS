@@ -1,4 +1,4 @@
-#This Is Not An Operating System
+# This Is Not An Operating System
 To build this OS (yes, the name is a joke), run
 `make all`
 
